@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалити книгу</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="center-container">
+        <h1>Видалити книгу</h1>
+        <form method="post" action="/delete-book">
+            <label>Назва книги:
+                <input type="text" name="title" required>
+            </label>
+            <label>Автор:
+                <input type="text" name="author" required>
+            </label>
+            <button type="submit">Видалити</button>
+        </form>
+    </div>
+</body>
+</html>

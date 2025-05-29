@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<title>Меню</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    font-family: Arial, sans-serif;
+  }
+  .vertical-menu {
+    display: flex;
+    flex-direction: column; /* вертикально */
+    gap: 20px; /* расстояние между кнопками */
+  }
+  .vertical-menu button {
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .vertical-menu button:hover {
+    background-color: #357ABD;
+  }
+</style>
+</head>
+<body>
+  <div class="vertical-menu">
+    <button onclick="location.href='/create-book'">Створити книгу</button>
+    <button onclick="location.href='/get-books'">Отримати книги автора</button>
+    <button onclick="location.href='/update-book'">Оновити книгу</button>
+    <button onclick="location.href='/delete-book'">Видалити книгу</button>
+  </div>
+</body>
+</html>

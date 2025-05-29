@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <form method="post" action="/token" class="form">
+                <h2>Вхід до акаунту</h2>
+                <label>Ім’я користувача:
+                    <input type="text" name="username" required>
+                </label>
+                <label>Пароль:
+                    <input type="password" name="password" required>
+                </label>
+                <button type="submit">Увійти</button>
+            </form>
+
+            <div class="bottom-link">
+                <p>Немає акаунта?</p>
+                <a href="/register" class="register-button">Створити акаунт</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

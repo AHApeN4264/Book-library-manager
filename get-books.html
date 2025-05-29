@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<title>Меню по центру</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center; /* по горизонтали */
+    align-items: center;     /* по вертикали */
+    font-family: Arial, sans-serif;
+  }
+  .vertical-menu {
+    display: flex;
+    flex-direction: column; /* вертикально */
+    gap: 20px; /* расстояние между пунктами */
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+  <div class="vertical-menu">
+    <div>Створити книгу</div>
+    <div>Отримати книги автора</div>
+    <div>Оновити книгу</div>
+    <div>Видалити книгу</div>
+  </div>
+</body>
+</html>

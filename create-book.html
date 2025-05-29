@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Створити книгу</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <form method="post" action="/create-book" class="form">
+                <h1>Створити книгу</h1>
+                <label>Назва:
+                    <input type="text" name="title" required>
+                </label>
+                <label>Автор:
+                    <input type="text" name="author" required>
+                </label>
+                <label>Кількість сторінок:
+                    <input type="number" name="pages" required>
+                </label>
+                <button type="submit" class="btn">Додати</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
