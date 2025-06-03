@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Налаштування користувача</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/setting.css') }}">
+</head>
+<body>
+  <div class="vertical-menu">
+    <button onclick="location.href='/change-name/{{ author }}'">Оновити Ім’я та Пароль</button>
+    <button onclick="location.href='/data-user/{{ author }}'">Свої налаштування</button>
+    <button onclick="location.href='/menu/{{ author }}'">Меню</button>
+    <button onclick="location.href='/logout'">Вийти з акаунта</button>
+    <button onclick="location.href='/delete-register/{{ author }}'">Видалити Акаунт</button>
+  </div>
+</body>
+</html>

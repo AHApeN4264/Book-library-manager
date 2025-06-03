@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмін панель</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/admin.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/admin-panel.css') }}">
+    <style>
+        .username-display {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        .menu-display {
+            position: absolute;
+            bottom: 60px; /* поднято выше */
+            right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #4a90e2;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .menu-display:hover {
+            background-color: #357ABD;
+        }
+        .login-display {
+            position: absolute;
+            bottom: 10px; /* поднято выше */
+            right: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #4a90e2;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .login-display:hover {
+            background-color: #357ABD;
+        }
+        /* Чтобы ссылка внутри login-display выглядела как кнопка */
+        .login-display a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- <h1>Вітаємо, {{ user }}! Ви увійшли до адмін-панелі.</h1> -->
+    <div class="username-display">
+        <a style="color: rgb(80, 71, 71); text-decoration: none;">👤 {{ user }}</a>
+    </div>
+    <div class="menu-display">
+      <a href="/menu/{{ author }}" style="color: rgb(255, 255, 255); text-decoration: none;">Вийти в меню</a>
+    </div>  
+    <div class="login-display">
+        <a href="/logout">Вийти з акаунта</a>
+    </div>
+    <h1>Вітаю вас в Адмін панелі</h1>
+    <div class="vertical-menu">
+        <button onclick="location.href='/admin-create-book'">Створити книгу</button>
+        <button onclick="location.href='/admin-update-book'">Оновити книгу</button>
+        <button onclick="location.href='/admin-delete-book'">Видалити книгу</button>
+        <button onclick="location.href='/admin-register-delete'">Видалити Користувача</button>
+    </div>
+</body>
+</html>

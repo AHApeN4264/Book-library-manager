@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалення акаунта</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/delete-register.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="icon">⚠️</div>
+        <h2>Видалення акаунта</h2>
+        <p class="username-warning">Ви точно хочете видалити <strong>{{ username }}</strong>?</p>
+        <form method="post" action="/delete-register/{{ username }}">
+            <button type="submit" class="delete-btn">Видалити</button>
+        </form>
+    </div>
+</body>
+</html>

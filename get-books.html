@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8" />
-<title>Меню по центру</title>
-<style>
-  html, body {
-    height: 100%;
-    margin: 0; padding: 0;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    display: flex;
-    justify-content: center; /* по горизонтали */
-    align-items: center;     /* по вертикали */
-    font-family: Arial, sans-serif;
-  }
-  .vertical-menu {
-    display: flex;
-    flex-direction: column; /* вертикально */
-    gap: 20px; /* расстояние между пунктами */
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    user-select: none;
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>Знайти книги</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/book.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 </head>
 <body>
-  <div class="vertical-menu">
-    <div>Створити книгу</div>
-    <div>Отримати книги автора</div>
-    <div>Оновити книгу</div>
-    <div>Видалити книгу</div>
-  </div>
+    <div class="background">
+        <div class="container">
+            <form id="book-search-form" class="form">
+                <h1>Знайти книги</h1>
+                <label>Автор:
+                    <input type="text" name="author" id="author-input" required>
+                </label>
+                <button type="submit" class="btn">Знайти</button>
+            </form>
+
+            {% if books is not none %}
+                <h2>Результати:</h2>
+                {% if books %}
+                    <ul>
+                        {% for book in books %}
+                            <li><strong>{{ book.title }}</strong> ({{ book.pages }} стор.)</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Книг не знайдено</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+<script>
+  document.getElementById('book-search-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // отменить стандартное поведение
+      const author = document.getElementById('author-input').value.trim();
+      if (author) {
+          const encodedAuthor = encodeURIComponent(author);
+          window.location.href = `/get-books/${encodedAuthor}`;
+      }
+  });
+</script>
 </body>
 </html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin error</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/error.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <style>
+        .username-display {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="username-display">
+        <a href="/setting-user/{{ author }}" style="color: rgb(80, 71, 71); text-decoration: none;">👤 {{ author }}</a>
+    </div>
+    <div class="background">
+        <div class="container">
+            <form method="post" action="/update-book" class="form">
+                {% if msg %}
+                    <p class="message">{{ msg }}</p>
+                {% endif %}
+                <img src="{{ url_for('static', path='png-gif/gif1.gif') }}" alt="Извините, не удалось загрузить гифку">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

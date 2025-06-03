@@ -1,17 +1,33 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
-from fastapi.security import OAuth2PasswordBearer
+from db.base import Base
+from db import models
+from passlib.context import CryptContext
+from fastapi import Depends
+from sqlalchemy.orm import Session
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./manager.db"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-Base = declarative_base()
+Base.metadata.create_all(bind=engine)
 
-# database.py
+with engine.connect() as conn:
+    result = conn.execute(text("PRAGMA table_info(users);"))
+    columns = [row[1] for row in result.fetchall()]
+    if "raw_password" not in columns:
+        conn.execute(text("ALTER TABLE users ADD COLUMN raw_password TEXT;"))
+        print("Колонка raw_password додана")
+    else:
+        # print("Колонка raw_password вже існує")
+        pass
+
+SECRET_KEY = "your_secret_key"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def get_db():
     db = SessionLocal()
@@ -19,3 +35,5 @@ def get_db():
         yield db
     finally:
         db.close()
+
+db: Session = Depends(get_db)

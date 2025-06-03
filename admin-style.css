@@ -5,9 +5,17 @@
     font-family: Arial, sans-serif;
 }
 
-body, html {
-    height: 100%;
+html{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
 }
+
 
 .background {
     background: linear-gradient(135deg, #74ebd5, #ACB6E5);
@@ -23,8 +31,10 @@ body, html {
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 900px;
+    margin-left: -0px;
 }
+
 
 .form h2 {
     margin-bottom: 20px;
@@ -48,7 +58,7 @@ input[type="text"], input[type="password"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #4facfe;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 6px;
@@ -106,12 +116,39 @@ button:hover {
     font-family: monospace;
 }
 
-.message {
-    color: green;
-    font-weight: bold;
+ul {
+  padding: 0;
+  margin-top: 20px;
 }
 
-.error-msg {
-    color: red;
-    font-weight: bold;
+li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+li span {
+  flex-grow: 1;
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+}
+
+form button {
+  background-color: #007bff;
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #007bff;
 }

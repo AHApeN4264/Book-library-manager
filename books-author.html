@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/books-author.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/books.css') }}">
+</head>
+<body>
+    <div class="container frame">
+        <h2>Книги автора "{{ author }}"</h2>
+
+        {% if books %}
+            <ul class="book-list">
+                {% for book in books %}
+                    <li>
+                        <strong>{{ book.title }}</strong> — {{ book.pages }} сторінок
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Книги не знайдено.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

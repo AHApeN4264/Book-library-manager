@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <title>Оновити книгу</title>
         <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/book.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/admin-style.css') }}">
 </head>
 <body>
     <div class="background">
         <div class="container">
-            <form method="post" action="/update-book/{{ author }}" class="form">
+            <form method="post" action="/admin-update-book" class="form">
                 <h1>Оновити книгу</h1>
                 <br>
                 <h3>Стара книга та автор</h3>
+                <label>Автор:
+                    <input type="text" name="old_author" required>
+                </label>
                 <label>Назва:
                     <input type="text" name="old_title" required>
                 </label>
                 <br>
                 <h3>Нова назва автора</h3>
+                <label>Автор:
+                    <input type="text" name="new_author" required>
+                </label>
                 <label>Назва:
                     <input type="text" name="new_title" required>
                 </label>

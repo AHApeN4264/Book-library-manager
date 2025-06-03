@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-<meta charset="UTF-8" />
-<title>Меню</title>
-<style>
-  html, body {
-    height: 100%;
-    margin: 0; padding: 0;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-    display: flex;
-    justify-content: center; /* по горизонтали */
-    align-items: center;     /* по вертикали */
-    font-family: Arial, sans-serif;
-  }
-  .vertical-menu {
-    display: flex;
-    flex-direction: column; /* вертикально */
-    gap: 20px; /* расстояние между кнопками */
-  }
-  .vertical-menu button {
-    padding: 15px 30px;
-    font-size: 20px;
-    font-weight: 600;
-    color: white;
-    background-color: #4a90e2;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  .vertical-menu button:hover {
-    background-color: #357ABD;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <title>Меню</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/book.png') }}">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/menu.css') }}">
+  <style>
+    .username-display {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+    .admin-button {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .admin-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
+  <div class="username-display">
+    <a href="/setting-user/{{ author }}" style="color: rgb(80, 71, 71); text-decoration: none;">👤 {{ author }}</a>
+  </div>
+
+  <header>
+    {% if is_admin %}
+      <a href="/admin" class="admin-button">Адмін панель</a>
+    {% endif %}
+  </header>
+
   <div class="vertical-menu">
-    <button onclick="location.href='/create-book'">Створити книгу</button>
-    <button onclick="location.href='/get-books'">Отримати книги автора</button>
-    <button onclick="location.href='/update-book'">Оновити книгу</button>
-    <button onclick="location.href='/delete-book'">Видалити книгу</button>
+    <button onclick="location.href='/create-book/{{ author }}'">Створити книгу</button>
+    <button onclick="location.href='/update-book/{{ author }}'">Оновити книгу</button>
+    <button onclick="location.href='/delete-book/{{ author }}'">Видалити книгу</button>
+    <button onclick="location.href='/get-books/{{ author }}'">Отримати книги автора</button>
   </div>
 </body>
 </html>

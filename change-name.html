@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Оновити книгу</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+                <form method="post" action="/change-name/{author}" class="form">
+                    <h1>Оновити користувача</h1>
+                    <label>Автор:
+                        <input type="text" name="new_author" required>
+                    </label>
+                    <label>Ім’я користувача:
+                        <input type="text" name="new_user" required>
+                    </label>
+                    <label>Пароль:
+                        <input type="password" name="new_password" required>
+                    </label>
+                    {% if error %}
+                      <p style="color: red;">{{ error }}</p>
+                    {% endif %}
+                
+                    <button type="submit">Оновити</button>
+                </form>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

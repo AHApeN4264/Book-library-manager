@@ -1,0 +1,33 @@
+html{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  font-family: Arial, sans-serif;
+}
+
+
+.vertical-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vertical-menu button {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.vertical-menu button:hover {
+  background-color: #357ABD;
+}

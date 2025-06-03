@@ -1,0 +1,22 @@
+.frame {
+    border: 2px solid #444;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.book-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.book-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.book-list li:last-child {
+    border-bottom: none;
+}

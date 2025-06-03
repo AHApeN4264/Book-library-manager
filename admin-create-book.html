@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Створити книгу</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/book.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='book.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/admin-style.css') }}">
 </head>
 <body>
     <div class="background">
         <div class="container">
-            <form method="post" action="/create-book/{{ author }}" class="form">
+            <form method="post" action="/admin-create-book" class="form">
                 <h1>Створити книгу</h1>
+                <label>Автор:
+                    <input type="text" name="author" required>
+                </label>
                 <label>Назва:
                     <input type="text" name="title" required>
                 </label>

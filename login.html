@@ -2,27 +2,43 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Вхід</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', path='login.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <title>Вхід до акаунту</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 </head>
 <body>
     <div class="background">
         <div class="container">
             <form method="post" action="/token" class="form">
                 <h2>Вхід до акаунту</h2>
+
+                {% if msg %}
+                  <p class="{% if 'успішно' in msg %}message{% else %}error-msg{% endif %}">{{ msg }}</p>
+                {% endif %}
+
+                
+                <label>Автор:
+                    <input type="text" name="author" required>
+                </label>
                 <label>Ім’я користувача:
                     <input type="text" name="username" required>
                 </label>
+
                 <label>Пароль:
                     <input type="password" name="password" required>
                 </label>
+
                 <button type="submit">Увійти</button>
             </form>
 
             <div class="bottom-link">
                 <p>Немає акаунта?</p>
                 <a href="/register" class="register-button">Створити акаунт</a>
+            </div>
+
+            <div class="bottom-link">
+                <p>Хочеш видалити акаунт?</p>
+                <a href="/register-delete" class="register-button">Видалити акаунт</a>
             </div>
         </div>
     </div>

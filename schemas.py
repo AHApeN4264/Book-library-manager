@@ -6,7 +6,7 @@ from typing import Optional
 class User(BaseModel):
     username: str
     password: str
-    client_id: Optional[str] = None  # теперь можно писать что угодно
+    client_id: Optional[str] = None
     client_secret: Optional[str] = None
 
 
@@ -18,3 +18,21 @@ class Book(BaseModel):
 class BookToDelete(BaseModel):
     author: str
     title: str
+
+# С автором
+
+# class User(BaseModel):
+    # author: Optional[str] = None
+    # username: str
+    # password: str
+    # client_id: Optional[str] = None
+    # client_secret: Optional[str] = None
+# 
+# 
+# class Book(BaseModel):
+    # title: str = Field(..., min_length=1)
+    # pages: int = Field(..., gt=10)
+# 
+# class BookToDelete(BaseModel):
+    # title: str
+# 

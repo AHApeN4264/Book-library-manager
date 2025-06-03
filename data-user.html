@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід до акаунту</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/login.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="form">
+                <h2>Ваші дані</h2>
+
+                <label>Автор:
+                    <div class="readonly-field">{{ author }}</div>
+                </label>
+
+                <label>Ім’я користувача:
+                    <div class="readonly-field">{{ user }}</div>
+                </label>
+
+                <label>Пароль:
+                    <div class="readonly-field">{{ password }}</div>
+                </label>
+
+                <a href="/setting-user/{{ author }}" class="button-link">До налаштування</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

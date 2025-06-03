@@ -2,36 +2,34 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Реєстрація</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/register.png') }}">
+    <title>Видалення акаунта</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='png-gif/delete.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
 </head>
 <body>
     <div class="background">
         <div class="container">
-            <form method="post" action="/register" class="form">
-                <h2>Реєстрація нового користувача</h2>
+            <form method="post" action="/register-delete" class="form">
+                <h2>Видалення акаунта</h2>
 
                 {% if msg %}
                   <p class="{% if 'успішно' in msg %}message{% else %}error-msg{% endif %}">{{ msg }}</p>
                 {% endif %}
 
-
-                <label>Автор:
-                    <input type="text" name="author" required>
-                </label>
                 <label>Ім’я користувача:
                     <input type="text" name="username" required>
                 </label>
+
                 <label>Пароль:
                     <input type="password" name="password" required>
                 </label>
-                <button type="submit">Зареєструватися</button>
-                <div class="bottom-link">
-                    <p>Вже є акаунт?</p>
-                <a href="/login" class="register-button">Войти</a>
-            </div>
+
+                <button type="submit">Видалити акаунт</button>
             </form>
+
+            <div class="bottom-link">
+                <a href="/login" class="register-button">Повернутися до входу</a>
+            </div>
         </div>
     </div>
 </body>
