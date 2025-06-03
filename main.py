@@ -15,7 +15,9 @@ from sqlalchemy import func
 from db.database import engine, Base, get_db, db, SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES, pwd_context
 from db.models import UserModel, BookModel
 from db.schemas import User, Book, BookToDelete
+
 app = FastAPI(title="Менеджер бібліотеки книг")
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 logging.basicConfig(level=logging.INFO)
